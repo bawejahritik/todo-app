@@ -3,20 +3,21 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-var items =["first", "second"];
+let items =["first", "second"];
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("public"));
 
 app.get("/", function(req, res){
-    var today = new Date();
-    var options = {
+    let today = new Date();
+    let options = {
         weekday: "long",
         day: "numeric",
         month: "long"
     };
 
-    var day = today.toLocaleDateString("en-US", options);
+    let day = today.toLocaleDateString("en-US", options);
     res.render("list", {kindOfDay: day, newListItems: items});
 });
 

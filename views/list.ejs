@@ -3,18 +3,24 @@
     <head>
         <meta charset="utf-8">
         <title>To Do List</title>
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <h1><%=kindOfDay%></h1>
-        <ul>
+        <div class="box" id="heading">
+            <h1><%=kindOfDay%></h1>
+        </div>
+        <div class="box">
             <% for(item in newListItems) { %>
-             <li><%=newListItems[item]%></li> 
+                <div class="item">
+                    <input type="checkbox">
+                    <p><%=newListItems[item]%></p>
+                </div> 
             <%} %>
-        </ul>
-        <form class="" action="/" method="post">
-            <input type="text" placeholder="enter task" name="newItem">
-            <button type="submit">Add Task</button>
-        </form>  
+            <form class="item" action="/" method="post">
+                <input type="text" placeholder="Enter Task" name="newItem" autocomplete="off">
+                <button type="submit">+</button>
+            </form>  
+        </div>
+
     </body>
 </html>  
